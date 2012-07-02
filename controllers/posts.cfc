@@ -2,22 +2,16 @@
 	
 	<!--- posts/create --->
 	<cffunction name="create">
-        <cfif params.humanChecker EQ params.computedVal>
-			<cfset post = model("Post").new(params.post)>
-            
-			<!--- Verify that the post creates successfully --->
-            <cfif post.save()>
-                <cfset flashInsert(success="The post was created successfully.")>
-                <cfset redirectTo(action="index")>
-            <!--- Otherwise --->
-            <cfelse>
-        		<cfset tags = model("Tag").findAll(order="name")>
-                <cfset flashInsert(error="There was an error creating the post.")>
-                <cfset renderPage(action="new")>
-            </cfif>
+		<cfset post = model("Post").new(params.post)>
+        
+		<!--- Verify that the post creates successfully --->
+        <cfif post.save()>
+            <cfset flashInsert(success="The post was created successfully.")>
+            <cfset redirectTo(action="index")>
+        <!--- Otherwise --->
         <cfelse>
-        	<cfset tags = model("Tag").findAll(order="name")>
-			<cfset flashInsert(error="You must prove you are human by performing math.")>
+            <cfset tags = model("Tag").findAll(order="name")>
+            <cfset flashInsert(error="There was an error creating the post.")>
             <cfset renderPage(action="new")>
         </cfif>
 	</cffunction>
@@ -58,6 +52,11 @@
 	<cffunction name="new">
 		<cfset post = model("Post").new()>
         <cfset tags = model("Tag").findAll(order="name")>
+        
+        <!--- ADD HUMAN CHECKER PROPERTY --->
+        <cfset post.humanchecker = "">
+        
+        <cfset pageTitle("CREATE A 'TUDE") />
 	</cffunction>
 	
 	<!--- posts/show/key --->

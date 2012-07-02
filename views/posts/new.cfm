@@ -12,8 +12,15 @@
     </div>
     <div class="pull-right">
 	    #bSelect(objectName='post', property='categoryid', label='Tag', options=tags, includeBlank=true)#
-        #bTextFieldTag(name="humanchecker", label="#Rand1# + #Rand2#")#
-		#hiddenFieldTag(name='computedval', value="#Rand1+Rand2#")#
+        #bTextField(objectName='post', property='humanchecker', label='#Rand1# + #Rand2#')#
+        <!---<div class="control-group">
+        	<label for="post-humanchecker" class="control-label">Prove you are human</label>
+            <div class="controls">
+            	<input type="text" placeholder="#Rand1# + #Rand2#" name="post[humanchecker]" id="post-humanchecker" />
+                <span class="help-inline"></span>
+            </div>
+        </div>--->
+		#hiddenFieldTag(name='post[humancheckerConfirmation]', value="#Rand1+Rand2#")#
     	#submitTag()#
     </div>
     </fieldset>

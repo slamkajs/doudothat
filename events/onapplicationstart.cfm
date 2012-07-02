@@ -10,7 +10,7 @@
 
 <cfset generateBundle(type="js", bundle="jquery", compress=true, source="
 	vendor/jquery/jquery,
-	jquerymx-3.2.custom
+	vendor/jquery/jquerymx-3.2.custom
 ") />
 
 <cfset generateBundle(type="js", bundle="bootstrap", compress=true, sources="
