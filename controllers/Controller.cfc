@@ -15,6 +15,6 @@
 	</cffunction>
 	
 	<cffunction name="loadTagList">
-		<cfset tags = model("tag").findAll(order="totallikes DESC,totalpins DESC") />
+		<cfset tags = model("tag").findAll(maxrows=13,order="totallikes DESC,totalpins DESC") />
 	</cffunction>
 </cfcomponent>
