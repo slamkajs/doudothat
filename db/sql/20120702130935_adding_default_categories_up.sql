@@ -1,4 +1,5 @@
 
+ALTER TABLE `cats` RENAME TO  `tags`;
 ALTER TABLE `tags` CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT  ;
 ALTER TABLE `posts` CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT  ;
 ALTER TABLE `users` CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT  ;
@@ -7,7 +8,7 @@ INSERT INTO `tags` ( `NAME`,`STUB`,`TOKEN`,`TOTALPOSTS`,`TOTALLIKES`,`TOTALPINS`
 INSERT INTO `tags` ( `NAME`,`STUB`,`TOKEN`,`TOTALPOSTS`,`TOTALLIKES`,`TOTALPINS` ) VALUES ( 'Pessimism','pessimism','',0,0,0 );
 INSERT INTO `tags` ( `NAME`,`STUB`,`TOKEN`,`TOTALPOSTS`,`TOTALLIKES`,`TOTALPINS` ) VALUES ( 'Confident','confident','',0,0,0 );
 INSERT INTO `tags` ( `NAME`,`STUB`,`TOKEN`,`TOTALPOSTS`,`TOTALLIKES`,`TOTALPINS` ) VALUES ( 'Interested','interested','',0,0,0 );
-INSERT INTO `tags` ( `NAME`,`STUB`,`TOKEN`,`TOTALPOSTS`,`TOTALLIKES`,`TOTALPINS` ) VALUES ( ' Independent','independent','',0,0,0 );
+INSERT INTO `tags` ( `NAME`,`STUB`,`TOKEN`,`TOTALPOSTS`,`TOTALLIKES`,`TOTALPINS` ) VALUES ( 'Independent','independent','',0,0,0 );
 INSERT INTO `tags` ( `NAME`,`STUB`,`TOKEN`,`TOTALPOSTS`,`TOTALLIKES`,`TOTALPINS` ) VALUES ( 'Jealous','jealous','',0,0,0 );
 INSERT INTO `tags` ( `NAME`,`STUB`,`TOKEN`,`TOTALPOSTS`,`TOTALLIKES`,`TOTALPINS` ) VALUES ( 'Courteous','courteous','',0,0,0 );
 INSERT INTO `tags` ( `NAME`,`STUB`,`TOKEN`,`TOTALPOSTS`,`TOTALLIKES`,`TOTALPINS` ) VALUES ( 'Cooperative','cooperative','',0,0,0 );
