@@ -1,0 +1,386 @@
+// tagbar (FIXED AND STATIC)
+// -------------------------
+
+
+// tagbar
+// -------------------------
+@tagbarHeight:                    40px;
+@tagbarBackground:                @grayDarker;
+@tagbarBackgroundHighlight:       @grayDark;
+
+@tagbarText:                      @grayLight;
+@tagbarLinkColor:                 @grayLight;
+@tagbarLinkColorHover:            @white;
+@tagbarLinkColorActive:           @tagbarLinkColorHover;
+@tagbarLinkBackgroundHover:       transparent;
+@tagbarLinkBackgroundActive:      @tagbarBackground;
+
+@tagbarSearchBackground:          lighten(@tagbarBackground, 25%);
+@tagbarSearchBackgroundFocus:     @white;
+@tagbarSearchBorder:              darken(@tagbarSearchBackground, 30%);
+@tagbarSearchPlaceholderColor:    #ccc;
+@tagbarBrandColor:                @tagbarLinkColor;
+
+@zindexFixedtagbar:       1020;
+// Navbar vertical align
+// -------------------------
+// Vertically center elements in the navbar.
+// Example: an element has a height of 30px, so write out `.navbarVerticalAlign(30px);` to calculate the appropriate top margin.
+.tagbarVerticalAlign(@elementHeight) {
+  margin-top: (@tagbarHeight - @elementHeight) / 2;
+}
+
+// COMMON STYLES
+// -------------
+
+.tagbar {
+  // Fix for IE7's bad z-indexing so dropdowns don't appear below content that follows the tagbar
+  *position: relative;
+  *z-index: 2;
+
+  overflow: visible;
+  margin-bottom: @baseLineHeight;
+}
+
+// Gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
+.tagbar-inner {
+  min-height: @tagbarHeight;
+  padding-left:  20px;
+  padding-right: 20px;
+  #gradient > .vertical(@tagbarBackgroundHighlight, @tagbarBackground);
+  .border-radius(4px);
+  .box-shadow(~"0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1)");
+}
+
+// Set width to auto for default container
+// We then reset it for fixed tagbars in the #gridSystem mixin
+.tagbar .container {
+  width: auto;
+}
+
+// Override the default collapsed state
+.nav-collapse.collapse {
+  height: auto;
+}
+
+
+// Brand, links, text, and buttons
+.tagbar {
+  color: @tagbarText;
+  // Hover and active states
+  .brand:hover {
+    text-decoration: none;
+  }
+  // Website or project name
+  .brand {
+    float: left;
+    display: block;
+    // Vertically center the text given @tagbarHeight
+    @elementHeight: 20px;
+    padding: ((@tagbarHeight - @elementHeight) / 2 - 2) 20px ((@tagbarHeight - @elementHeight) / 2 + 2);
+    margin-left: -20px; // negative indent to left-align the text down the page
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1;
+    color: @tagbarBrandColor;
+  }
+  // Plain text in topbar
+  .tagbar-text {
+    margin-bottom: 0;
+    line-height: @tagbarHeight;
+  }
+  // Janky solution for now to account for links outside the .nav
+  .tagbar-link {
+    color: @tagbarLinkColor;
+    &:hover {
+      color: @tagbarLinkColorHover;
+    }
+  }
+  // Buttons in tagbar
+  .btn,
+  .btn-group {
+    .tagbarVerticalAlign(30px); // Vertically center in tagbar
+  }
+  .btn-group .btn {
+    margin: 0; // then undo the margin here so we don't accidentally double it
+  }
+}
+
+// tagbar forms
+.tagbar-form {
+  margin-bottom: 0; // remove default bottom margin
+  .clearfix();
+  input,
+  select,
+  .radio,
+  .checkbox {
+    .tagbarVerticalAlign(30px); // Vertically center in tagbar
+  }
+  input,
+  select {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  input[type="image"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-top: 3px;
+  }
+  .input-append,
+  .input-prepend {
+    margin-top: 6px;
+    white-space: nowrap; // preven two  items from separating within a .tagbar-form that has .pull-left
+    input {
+      margin-top: 0; // remove the margin on top since it's on the parent
+    }
+  }
+}
+
+// tagbar search
+.tagbar-search {
+  position: relative;
+  float: left;
+  .tagbarVerticalAlign(28px); // Vertically center in tagbar
+  margin-bottom: 0;
+  .search-query {
+    padding: 4px 9px;
+    #font > .sans-serif(13px, normal, 1);
+    color: @white;
+    background-color: @tagbarSearchBackground;
+    border: 1px solid @tagbarSearchBorder;
+    .box-shadow(~"inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15)");
+    .transition(none);
+
+    .placeholder(@tagbarSearchPlaceholderColor);
+
+    // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
+    &:focus,
+    &.focused {
+      padding: 5px 10px;
+      color: @grayDark;
+      text-shadow: 0 1px 0 @white;
+      background-color: @tagbarSearchBackgroundFocus;
+      border: 0;
+      .box-shadow(0 0 3px rgba(0,0,0,.15));
+      outline: 0;
+    }
+  }
+}
+
+
+
+// FIXED tagbar
+// ------------
+
+// Shared (top/bottom) styles
+.tagbar-fixed-top,
+.tagbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: @zindexFixedtagbar;
+  margin-bottom: 0; // remove 18px margin for static tagbar
+}
+.tagbar-fixed-top .tagbar-inner,
+.tagbar-fixed-bottom .tagbar-inner {
+  padding-left:  0;
+  padding-right: 0;
+  .border-radius(0);
+}
+
+.tagbar-fixed-top .container,
+.tagbar-fixed-bottom .container {
+  #grid > .core > .span(@gridColumns);
+}
+
+// Fixed to top
+.tagbar-fixed-top {
+  top: @navbarHeight;
+}
+
+// Fixed to bottom
+.tagbar-fixed-bottom {
+  bottom: 0;
+}
+
+
+
+// NAVIGATION
+// ----------
+
+.tagbar .nav {
+  position: relative;
+  left: 0;
+  display: block;
+  float: left;
+  margin: 0 10px 0 0;
+}
+.tagbar .nav.pull-right {
+  float: right; // redeclare due to specificity
+}
+.tagbar .nav > li {
+  display: block;
+  float: left;
+}
+
+// Links
+.tagbar .nav > li > a {
+  float: none;
+  // Vertically center the text given @tagbarHeight
+  @elementHeight: 20px;
+  padding: ((@tagbarHeight - @elementHeight) / 2 - 1) 10px ((@tagbarHeight - @elementHeight) / 2 + 1);
+  line-height: 19px;
+  color: @tagbarLinkColor;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+}
+// Buttons
+.tagbar .btn {
+  display: inline-block;
+  padding: 4px 10px 4px;
+  // Vertically center the button given @tagbarHeight
+  @elementHeight: 28px;
+  margin: ((@tagbarHeight - @elementHeight) / 2 - 1) 5px ((@tagbarHeight - @elementHeight) / 2);
+  line-height: @baseLineHeight;
+}
+.tagbar .btn-group {
+  margin: 0;
+  // Vertically center the button given @tagbarHeight
+  @elementHeight: 28px;
+  padding: ((@tagbarHeight - @elementHeight) / 2 - 1) 5px ((@tagbarHeight - @elementHeight) / 2);
+}
+// Hover
+.tagbar .nav > li > a:hover {
+  background-color: @tagbarLinkBackgroundHover; // "transparent" is default to differentiate :hover from .active
+  color: @tagbarLinkColorHover;
+  text-decoration: none;
+}
+
+// Active nav items
+.tagbar .nav .active > a,
+.tagbar .nav .active > a:hover {
+  color: @tagbarLinkColorActive;
+  text-decoration: none;
+  background-color: @tagbarLinkBackgroundActive;
+}
+
+// Dividers (basically a vertical hr)
+.tagbar .divider-vertical {
+  height: @tagbarHeight;
+  width: 1px;
+  margin: 0 9px;
+  overflow: hidden;
+  background-color: @tagbarBackground;
+  border-right: 1px solid @tagbarBackgroundHighlight;
+}
+
+// Secondary (floated right) nav in topbar
+.tagbar .nav.pull-right {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+// tagbar button for toggling tagbar items in responsive layouts
+// These definitions need to come after '.tagbar .btn'
+.tagbar .btn-tagbar {
+  display: none;
+  float: right;
+  padding: 7px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  .buttonBackground(@tagbarBackgroundHighlight, @tagbarBackground);
+  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075)");
+}
+.tagbar .btn-tagbar .icon-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #f5f5f5;
+  .border-radius(1px);
+  .box-shadow(0 1px 0 rgba(0,0,0,.25));
+}
+.btn-tagbar .icon-bar + .icon-bar {
+  margin-top: 3px;
+}
+
+
+// Dropdown menus
+// --------------
+
+// Menu position and menu carets
+.tagbar .dropdown-menu {
+  &:before {
+    content: '';
+    display: inline-block;
+    border-left:   7px solid transparent;
+    border-right:  7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-bottom-color: @dropdownBorder;
+    position: absolute;
+    top: -7px;
+    left: 9px;
+  }
+  &:after {
+    content: '';
+    display: inline-block;
+    border-left:   6px solid transparent;
+    border-right:  6px solid transparent;
+    border-bottom: 6px solid @dropdownBackground;
+    position: absolute;
+    top: -6px;
+    left: 10px;
+  }
+}
+// Menu position and menu caret support for dropups via extra dropup class
+.tagbar-fixed-bottom .dropdown-menu {
+  &:before {
+    border-top: 7px solid #ccc;
+    border-top-color: @dropdownBorder;
+    border-bottom: 0;
+    bottom: -7px;
+    top: auto;
+  }
+  &:after {
+    border-top: 6px solid @dropdownBackground;
+    border-bottom: 0;
+    bottom: -6px;
+    top: auto;
+  }
+}
+// Dropdown toggle caret
+.tagbar .nav li.dropdown .dropdown-toggle .caret,
+.tagbar .nav li.dropdown.open .caret {
+  border-top-color: @white;
+  border-bottom-color: @white;
+}
+.tagbar .nav li.dropdown.active .caret {
+  .opacity(100);
+}
+
+// Remove background color from open dropdown
+.tagbar .nav li.dropdown.open > .dropdown-toggle,
+.tagbar .nav li.dropdown.active > .dropdown-toggle,
+.tagbar .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: transparent;
+}
+
+// Dropdown link on hover
+.tagbar .nav li.dropdown.active > .dropdown-toggle:hover {
+  color: @white;
+}
+
+// Right aligned menus need alt position
+// TODO: rejigger this at some point to simplify the selectors
+.tagbar .pull-right .dropdown-menu,
+.tagbar .dropdown-menu.pull-right {
+  left: auto;
+  right: 0;
+  &:before {
+    left: auto;
+    right: 12px;
+  }
+  &:after {
+    left: auto;
+    right: 13px;
+  }
+}

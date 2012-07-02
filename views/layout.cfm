@@ -1,57 +1,74 @@
-<!--- Place HTML here that should be used as the default layout of your application --->
-<html>
-	<head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	
     <cfoutput>
-	<meta charset="utf-8">
 	<title>#includeContent("pageTitle")# | Pinitude</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
 	<meta name="description" content="">
 	<meta name="author" content="">
-	#stylesheetLinkTag(bundle="global")#
+	#stylesheetLinkTag(bundle="app")#
 	#javaScriptIncludeTag(bundle="jquery")#
 	#javaScriptIncludeTag(bundle="bootstrap")#
+	
     </cfoutput>
     </head>
 	<body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </a>
-                <a href="#" class="brand">Pinitude</a>
-                <div class="nav-collapse">
-                    <form class="navbar-search pull-right" action="">
-                        <input type="text" class="search-query span2" placeholder="Search" />
-                        <button class="btn">?</button>
-                    </form>
-                    <ul class="nav pull-right">
-                        <li><a href="#">submit</a></li>
-                        <li><a href="#">popular</a></li>
-                        <li class="dropdown">
-                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">categories <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                            	<li>Emotions</li>
-                            	<li>Emotions</li>
-                            	<li>Emotions</li>
-                            	<li>Emotions</li>
-                            	<li>Emotions</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </div>
-    </div>
-    <div class="container">
-		<cfoutput>
-        #includeContent()#
-        </cfoutput>
-    </div>
-    <hr>
-    <footer>
-    <p>&copy; Pinitude 2012</p>
-    </footer>
+		
+    <cfoutput>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</a>
+					<a href="##" class="brand">Pinitude</a>
+					<div class="nav-collapse">
+						<ul class="nav pull-left">
+							<li><a href="##">submit</a></li>
+							<li><a href="##">popular</a></li>
+							<li class="dropdown">
+							<a href="##" class="dropdown-toggle" data-toggle="dropdown">categories <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>Emotions</li>
+								<li>Emotions</li>
+								<li>Emotions</li>
+								<li>Emotions</li>
+								<li>Emotions</li>
+							</ul>
+							</li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+		<div class="tagbar tagbar-fixed-top">
+			<div class="tagbar-inner">
+				<div class="container">
+					<div class="nav-collapse">
+						<ul class="nav pull-left">
+							<cfloop query="tags">
+							<li><a href="/#tags.name#">#tags.name#</a></li>
+							</cfloop>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			#includeContent()#
+		</div>
+		</cfoutput>
 	</body>
 </html>

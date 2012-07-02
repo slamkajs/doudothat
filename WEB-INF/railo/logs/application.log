@@ -11,3 +11,5 @@
 "ERROR","web-0","07/02/2012","11:58:13","","key [VERSION_TOKEN] doesn't exist in struct (keys:ASSETBUNDLER,applicationname,WHEELS)"
 "ERROR","web-0","07/02/2012","11:59:03","","No matching Method/Function [JAVASCRIPTLINKTAG] for call with named arguments found "
 "ERROR","web-0","07/02/2012","12:42:09","","datasource [pinitude] doesn't exist"
+"ERROR","web-0","07/02/2012","14:34:40","","missing terminating [#] for expression"
+"ERROR","web-0","07/02/2012","14:34:46","","missing terminating [#] for expression"
