@@ -8,6 +8,7 @@
 	<meta name="author" content="">
 	#stylesheetLinkTag(bundle="global")#
 	#javaScriptIncludeTag(bundle="jquery")#
+	#javaScriptIncludeTag(bundle="bootstrap")#
     </cfoutput>
     </head>
 	<body>
