@@ -48,7 +48,7 @@
 .tagbar {
   *position: relative;
   *z-index: 2;
-  overflow: visible;
+  overflow: hidden;
   margin-bottom: 18px;
 }
 .tagbar-inner {
