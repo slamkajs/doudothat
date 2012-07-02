@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<railo-configuration version="2.0">
+<railo-configuration password="eccc2fc78c70a978ea4f827996b856b59e6bd6685d86b4e8f31b346a5dc44dfc" version="2.0">
+  <cfabort/>
 
 <!-- 
 Path placeholders:
@@ -32,7 +33,8 @@ Path placeholders:
 <!--	or ask your database distributor 																-->
 
 	<data-sources>
-	</data-sources>
+	<data-source allow="511" blob="false" class="org.gjt.mm.mysql.Driver" clob="false" connectionTimeout="1" custom="characterEncoding=UTF-8&amp;useUnicode=true&amp;allowMultiQueries=true" database="pinitude" dsn="jdbc:mysql://{host}:{port}/{database}" host="localhost" metaCacheTimeout="60000" name="pinitude" port="3306" storage="false" username="root" validate="false"/>
+  </data-sources>
 	
 	<resources>
     	<!--
