@@ -59,7 +59,7 @@
 					<div class="nav-collapse">
 						<ul class="nav pull-left">
 							<cfloop query="tags">
-							<li><a href="/#tags.name#">#tags.name#</a></li>
+							<li><a href="/#tags.stub#">#tags.name#</a></li>
 							</cfloop>
 						</ul>
 					</div><!--/.nav-collapse -->
