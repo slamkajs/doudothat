@@ -16,7 +16,7 @@
     </style>
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<cfif params.controller EQ "tags" params.action EQ "show">
+	<cfif params.controller EQ "tags" AND params.action EQ "show">
 	<link href='http://fonts.googleapis.com/css?family=Reenie+Beanie|Indie+Flower|Chelsea+Market|Gorditas|Flavors|Just+Another+Hand|Boogaloo|Slackey|Bangers|Rammetto+One|Six+Caps|Love+Ya+Like+A+Sister|Henny+Penny|Schoolbell|Permanent+Marker|Allura|Pacifico|Sunshiney|Butterfly+Kids|Amatic+SC|Rancho|Architects+Daughter|Patrick+Hand|Eater|Fredericka+the+Great|Caesar+Dressing|Maiden+Orange|Passion+One:400,700,900|Frijole|Cabin+Sketch:400,700' rel='stylesheet' type='text/css'>
 	</cfif>
 	#stylesheetLinkTag(bundle="app")#
