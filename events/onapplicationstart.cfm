@@ -8,7 +8,10 @@
 	global
 ") />
 
-<cfset generateBundle(type="js", bundle="jquery", compress=true, source="vendor/jquery/jquery") />
+<cfset generateBundle(type="js", bundle="jquery", compress=true, source="
+	vendor/jquery/jquery,
+	jquerymx-3.2.custom
+") />
 
 <cfset generateBundle(type="js", bundle="bootstrap", compress=true, sources="
 	vendor/bootstrap/bootstrap-alert,
@@ -22,4 +25,5 @@
 	vendor/bootstrap/bootstrap-scrollspy,
 	vendor/bootstrap/bootstrap-tab,
 	vendor/bootstrap/bootstrap-transition,
-	vendor/bootstrap/bootstrap-typeahead") />
+	vendor/bootstrap/bootstrap-typeahead
+") />
