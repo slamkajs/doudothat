@@ -1,5 +1,5 @@
 <cfcomponent extends="Controller">
 	<cffunction name="Home">
-    	<!--- CONTENT --->
+		<cfset pageTitle("HOME") />
 	</cffunction>
 </cfcomponent>

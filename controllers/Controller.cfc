@@ -4,4 +4,9 @@
 	Do not delete this file.
 --->
 <cfcomponent extends="Wheels">
+	<cffunction name="pageTitle">
+		<cfargument name="titleText" type="string" required="no" default="" />
+		
+		<cfset contentFor(pageTitle=arguments.titleText) />
+	</cffunction>
 </cfcomponent>
