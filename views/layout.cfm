@@ -20,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </a>
-                <a href="#" class="brand">Pinitude</a>
+                <a href="/" class="brand">Pinitude</a>
                 <div class="nav-collapse">
                     <form class="navbar-search pull-right" action="">
                         <input type="text" class="search-query span2" placeholder="Search" />
