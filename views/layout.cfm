@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	#stylesheetLinkTag(bundle="global")#
-	#javaScriptIncludeTag(bundle="global")#
+	#javaScriptIncludeTag(bundle="jquery")#
     </cfoutput>
     </head>
 	<body>
