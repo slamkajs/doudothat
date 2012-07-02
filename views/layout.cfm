@@ -27,7 +27,7 @@
                         <button class="btn">?</button>
                     </form>
                     <ul class="nav pull-right">
-                        <li><a href="#">submit</a></li>
+                        <li><a href="/posts/new">submit</a></li>
                         <li><a href="#">popular</a></li>
                         <li class="dropdown">
                         	<a href="#" class="dropdown-toggle" data-toggle="dropdown">categories <b class="caret"></b></a>
