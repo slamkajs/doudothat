@@ -22,11 +22,15 @@
                 </a>
                 <a href="#" class="brand">Pinitude</a>
                 <div class="nav-collapse">
-                    <ul class="nav">
-                        <li class="active"><a href="#">submit</a></li>
-                        <li><a href="#about">popular</a></li>
+                    <form class="navbar-search pull-right" action="">
+                        <input type="text" class="search-query span2" placeholder="Search" />
+                        <button class="btn">?</button>
+                    </form>
+                    <ul class="nav pull-right">
+                        <li><a href="#">submit</a></li>
+                        <li><a href="#">popular</a></li>
                         <li class="dropdown">
-                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">categories <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                             	<li>Emotions</li>
                             	<li>Emotions</li>
