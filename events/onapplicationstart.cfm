@@ -16,9 +16,9 @@
 	vendor/bootstrap/bootstrap-carousel,
 	vendor/bootstrap/bootstrap-dropdown,
 	vendor/bootstrap/bootstrap-modal,
+	vendor/bootstrap/bootstrap-tooltip,
 	vendor/bootstrap/bootstrap-popover,
 	vendor/bootstrap/bootstrap-scrollspy,
 	vendor/bootstrap/bootstrap-tab,
-	vendor/bootstrap/bootstrap-tooltip,
 	vendor/bootstrap/bootstrap-transition,
 	vendor/bootstrap/bootstrap-typeahead") />
